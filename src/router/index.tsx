@@ -31,10 +31,10 @@ export const rootRouter = [
   }
 ]
 
-function Router() {
+function Index() {
   const routes = useRoutes(rootRouter)
 
   return routes
 }
 
-export default Router
+export default Index
