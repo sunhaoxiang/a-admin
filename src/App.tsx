@@ -1,7 +1,12 @@
+import { HashRouter } from 'react-router-dom'
+import Router from '@/router'
+
 function App() {
   return (
     <>
-      <p className="text-3xl font-bold underline">hello</p>
+      <HashRouter>
+        <Router />
+      </HashRouter>
     </>
   )
 }
