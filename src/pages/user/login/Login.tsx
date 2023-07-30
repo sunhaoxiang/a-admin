@@ -10,15 +10,7 @@ const Login = () => {
             <div className="text-4xl text-center text-white">A Admin</div>
           </div>
           <div className="p-4 transition-all border shadow rounded-xl hover:shadow-2xl w-80 bg-white/80">
-            <Form
-              name="login"
-              labelCol={{ span: 5 }}
-              size="large"
-              initialValues={{
-                email: '316783812@qq.com',
-                passwd: '316783812'
-              }}
-            >
+            <Form name="login" labelCol={{ span: 5 }} size="large">
               <Form.Item
                 name="email"
                 rules={[
