@@ -1,10 +1,11 @@
 import { Button, Form, Input, Space } from 'antd'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
+import './Login.scss'
 
 const Login = () => {
   return (
     <div className="relative header">
-      <div className="lex flex-col items-center justify-center w-screen py-10 min-h-[80vh]">
+      <div className="flex flex-col items-center justify-center w-screen py-10 min-h-[80vh]">
         <div className="space-y-8">
           <div className="space-y-4">
             <div className="text-4xl text-center text-white">A Admin</div>
@@ -47,7 +48,7 @@ const Login = () => {
                 </Space>
               </Form.Item>
               <Form.Item>
-                <Button type="primary" htmlType="submit">
+                <Button type="primary" htmlType="submit" size="large" block>
                   Submit
                 </Button>
               </Form.Item>
