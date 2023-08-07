@@ -1,5 +1,6 @@
-import { Button, Form, Input, Space } from 'antd'
+import { Button, Form, Input } from 'antd'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
+import Wave from '@/components/Login/Wave/Wave.tsx'
 import './Login.scss'
 
 const Login = () => {
@@ -36,17 +37,6 @@ const Login = () => {
                   prefix={<LockOutlined />}
                 />
               </Form.Item>
-              <Form.Item
-                name="captcha"
-                rules={[
-                  { required: true, message: 'Please enter the captcha' }
-                ]}
-              >
-                <Space>
-                  <Input placeholder="Captcha" />
-                  <img alt="captcha" />
-                </Space>
-              </Form.Item>
               <Form.Item>
                 <Button type="primary" htmlType="submit" size="large" block>
                   Submit
@@ -56,6 +46,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Wave />
     </div>
   )
 }
