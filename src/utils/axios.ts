@@ -4,15 +4,13 @@ import { message } from 'antd'
 import { storage } from '@/utils'
 
 export const axios = Axios.create({
-  baseURL: '/api'
+  baseURL: import.meta.env.VITE_API_URL
 })
 
 axios.interceptors.request.use((config: InternalAxiosRequestConfig) => {
   const token = storage.getToken()
 
-  if (token) config.headers.Authorization = `Bearer ${token}`
-
-  config.headers.apiKey = import.meta.env.VITE_APP_API_KEY
+  if (token) config.headers.token = `token`
 
   return config
 })
@@ -24,7 +22,7 @@ axios.interceptors.response.use(
       return data.data
     } else {
       message.error(data.message)
-      if (data.code === -666) storage.clearToken()
+      if (data.code === 401) storage.clearToken()
 
       return Promise.reject(data)
     }
