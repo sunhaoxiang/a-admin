@@ -31,7 +31,7 @@ const Login = () => {
               labelCol={{ span: 5 }}
               size="large"
               initialValues={{
-                email: 'alex@example.com',
+                email: 'a-admin@example.com',
                 password: 'password'
               }}
               onFinish={onFinish}
