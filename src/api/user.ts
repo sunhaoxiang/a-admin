@@ -1,11 +1,11 @@
 import { axios } from '@/utils'
-import type { LoginData, LoginRes, UserInfoRes } from '@/types/user'
+import type { LoginData, UserInfo, UserInfoRes } from '@/types/user'
 
-export async function userLoginApi(data: LoginData): Promise<LoginRes> {
+export async function userLoginApi(data: LoginData): Promise<UserInfo> {
   return axios({
     url: '/login',
-    method: 'post',
-    data
+    method: 'get',
+    params: data
   })
 }
 

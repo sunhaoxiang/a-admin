@@ -1,16 +1,13 @@
 export interface LoginData {
   email: string
-  passwd: string
+  password: string
 }
 
-export interface LoginRes {
-  id: number
-  email: string
-  token: string
-}
-
-export interface UserInfoRes {
+export interface UserInfo {
   id: number
   email: string
   role: string
+  token: string
 }
+
+export type UserInfoRes = Omit<UserInfo, 'token'>

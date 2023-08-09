@@ -1,9 +1,23 @@
-import { Button, Form, Input } from 'antd'
+import { useNavigate } from 'react-router-dom'
+import { Button, Form, Input, message } from 'antd'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
-import Wave from '@/components/Login/Wave/Wave.tsx'
+import { userLoginApi } from '@/api/user'
+import { useUserInfoStore } from '@/stores'
+import Wave from '@/components/Login/Wave/Wave'
 import './Login.scss'
+import type { LoginData } from '@/types/user'
 
 const Login = () => {
+  const { setUserInfo } = useUserInfoStore()
+  const navigate = useNavigate()
+
+  const onFinish = async (values: LoginData) => {
+    const result = await userLoginApi(values)
+    setUserInfo(result)
+    console.log('Success:', result)
+    navigate('/', { replace: true })
+  }
+
   return (
     <div className="relative header">
       <div className="flex flex-col items-center justify-center w-screen py-10 min-h-[80vh]">
@@ -12,7 +26,16 @@ const Login = () => {
             <div className="text-4xl text-center text-white">A Admin</div>
           </div>
           <div className="p-4 transition-all border shadow rounded-xl hover:shadow-2xl w-80 bg-white/80">
-            <Form name="login" labelCol={{ span: 5 }} size="large">
+            <Form
+              name="login"
+              labelCol={{ span: 5 }}
+              size="large"
+              initialValues={{
+                email: 'alex@example.com',
+                password: 'password'
+              }}
+              onFinish={onFinish}
+            >
               <Form.Item
                 name="email"
                 rules={[
@@ -23,7 +46,7 @@ const Login = () => {
                 <Input placeholder="Username" prefix={<UserOutlined />} />
               </Form.Item>
               <Form.Item
-                name="passwd"
+                name="password"
                 rules={[
                   { required: true, message: 'Please enter the password' },
                   {
