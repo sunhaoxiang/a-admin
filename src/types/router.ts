@@ -8,9 +8,9 @@ export interface MetaObject {
   index?: number
 }
 
-export interface MyRouterObject {
+export interface RouterObject {
   element?: ReactNode
   path?: string
   meta?: MetaObject
-  children?: MyRouterObject[]
+  children?: RouterObject[]
 }

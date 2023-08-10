@@ -3,7 +3,7 @@ import { Button, Form, Input, message } from 'antd'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import { userLoginApi } from '@/api/user'
 import { useUserInfoStore } from '@/stores'
-import Wave from '@/components/Login/Wave/Wave'
+import Wave from '@/components/login/wave/Wave'
 import './Login.scss'
 import type { LoginData } from '@/types/user'
 

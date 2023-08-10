@@ -1,38 +1,10 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom'
-import Login from '@/pages/user/login/Login.tsx'
-import NotFound from '@/pages/NotFound.tsx'
+import { useRoutes } from 'react-router-dom'
+import { rootRoutes } from './routes'
 
-const routes = [
-  {
-    path: '/',
-    element: <Navigate to="/dashboard" replace={true} />
-  },
-  {
-    path: '/login',
-    element: <Login />,
-    meta: {
-      title: 'Login',
-      key: 'login',
-      auth: false
-    }
-  },
-  {
-    path: '/404',
-    element: <NotFound />,
-    meta: {
-      title: 'Not Found',
-      key: 'notfound',
-      auth: false
-    }
-  },
-  {
-    path: '*',
-    element: <Navigate to="/404" replace={true} />
-  }
-]
+const Router = () => {
+  const routes = useRoutes(rootRoutes)
 
-const router = createBrowserRouter(routes, {
-  basename: import.meta.env.VITE_BASE_URL
-})
+  return routes
+}
 
-export default router
+export default Router

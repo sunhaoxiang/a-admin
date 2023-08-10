@@ -1,10 +1,15 @@
-import { RouterProvider } from 'react-router-dom'
-import router from '@/router'
+import { HashRouter } from 'react-router-dom'
+import AuthRouter from '@/components/router/AuthRouter'
+import Router from '@/router'
 
 function App() {
   return (
     <>
-      <RouterProvider router={router} />
+      <HashRouter>
+        <AuthRouter>
+          <Router />
+        </AuthRouter>
+      </HashRouter>
     </>
   )
 }

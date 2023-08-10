@@ -1,11 +1,11 @@
 import { resolvePath } from 'react-router-dom'
-import type { MyRouterObject } from '@/types/router'
+import type { RouterObject } from '@/types/router'
 
 export function searchRoute(
   pathname: string,
-  routes: MyRouterObject[]
-): MyRouterObject {
-  let result: MyRouterObject = {}
+  routes: RouterObject[]
+): RouterObject {
+  let result: RouterObject = {}
   for (const route of routes) {
     if (route.path === pathname) return route
 
@@ -19,10 +19,10 @@ export function searchRoute(
 }
 
 export function normalizeRoute(
-  routes: MyRouterObject[],
+  routes: RouterObject[],
   isSort = true
-): MyRouterObject[] {
-  const result: MyRouterObject[] = []
+): RouterObject[] {
+  const result: RouterObject[] = []
 
   for (const route of routes) {
     if (route.children) {

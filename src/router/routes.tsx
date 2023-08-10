@@ -2,7 +2,7 @@ import { Navigate } from 'react-router-dom'
 import Login from '@/pages/user/login/Login.tsx'
 import NotFound from '@/pages/NotFound.tsx'
 
-export const rootRouter = [
+export const rootRoutes = [
   {
     path: '/',
     element: <Navigate to="/dashboard" replace={true} />
