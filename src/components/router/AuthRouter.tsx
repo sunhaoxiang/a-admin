@@ -10,10 +10,6 @@ const AuthRouter = ({ children }: { children: ReactElement }) => {
 
   const route = searchRoute(pathname, rootRoutes)
 
-  // console.log(route)
-
-  console.log('AuthRouter', pathname, userInfo)
-
   if (route.meta?.auth === false) return children
 
   if (!userInfo || !userInfo.token)
