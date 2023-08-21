@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <AntdHeader>
-      <div className="text-center text-white">Welcome, {userInfo?.email}</div>
+      <div className="text-right text-white">Welcome, {userInfo?.email}</div>
     </AntdHeader>
   )
 }
